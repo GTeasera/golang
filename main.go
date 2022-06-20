@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 var a, b, c int
 
@@ -39,4 +42,13 @@ func printMessage(message string) {
 
 func sayHello(name string, age int) string {
 	return fmt.Sprintf("Hello, %s! U`r age is %d", name, age)
+}
+
+func faceCheck(age int) (string, bool, error) {
+	if age >= 18 && age < 45 {
+		return "Come in", true, nil
+	} else if age >= 45 && age < 100 {
+		return "Go home", false, errors.New("age to old")
+	}
+	return "Go out", false, errors.New("age to young")
 }
