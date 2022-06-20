@@ -24,8 +24,19 @@ func main() {
 
 	a, b, c = 6, 7, 8
 	print()
+
+	message3 := sayHello("Nikita", 17)
+	printMessage(message3)
 }
 
 func print() {
 	fmt.Println(a, b, c)
+}
+
+func printMessage(message string) {
+	fmt.Println(message)
+}
+
+func sayHello(name string, age int) string {
+	return fmt.Sprintf("Hello, %s! U`r age is %d", name, age)
 }
