@@ -8,6 +8,7 @@ import (
 var a, b, c int
 
 func main() {
+
 	var message = "Go to Go"
 	const message1 string = "ffds"
 
@@ -30,6 +31,28 @@ func main() {
 
 	message3 := sayHello("Nikita", 17)
 	printMessage(message3)
+
+	/*
+		message4, err := faceCheck(15)
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+		fmt.Printf(message4)
+	*/
+
+	fmt.Println(findMax(4, 3, 2, 76, 54, 342))
+
+	func() {
+		fmt.Println("Anonim func")
+	}()
+
+	inc := increment()
+
+	fmt.Println(inc())
+	fmt.Println(inc())
+	fmt.Println(inc())
+	fmt.Println(inc())
 }
 
 func print() {
@@ -44,11 +67,35 @@ func sayHello(name string, age int) string {
 	return fmt.Sprintf("Hello, %s! U`r age is %d", name, age)
 }
 
-func faceCheck(age int) (string, bool, error) {
+func faceCheck(age int) (string /*bool,*/, error) {
 	if age >= 18 && age < 45 {
-		return "Come in", true, nil
+		return "Come in" /*true,*/, nil
 	} else if age >= 45 && age < 100 {
-		return "Go home", false, errors.New("age to old")
+		return "Go home" /*false,*/, errors.New("age to old")
 	}
-	return "Go out", false, errors.New("age to young")
+	return "Go out" /*false,*/, errors.New("age to young")
+}
+
+func findMax(numbers ...int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+
+	max := numbers[0]
+
+	for _, i := range numbers {
+		if i > max {
+			max = i
+		}
+	}
+
+	return max
+}
+
+func increment() func() int {
+	count := 0
+	return func() int {
+		count++
+		return count
+	}
 }
