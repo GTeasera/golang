@@ -7,7 +7,14 @@ import (
 
 var a, b, c int
 
+var msg string
+
+func init() {
+	msg = "from init()\n"
+}
+
 func main() {
+	fmt.Println(msg)
 
 	var message = "Go to Go"
 	const message1 string = "ffds"
@@ -53,6 +60,14 @@ func main() {
 	fmt.Println(inc())
 	fmt.Println(inc())
 	fmt.Println(inc())
+
+	fmt.Println(increment2())
+	fmt.Println(increment2())
+	fmt.Println(increment2())
+	fmt.Println(increment2())
+
+	message5 := "Go to Golang"
+	printMessage1(message5)
 }
 
 func print() {
@@ -98,4 +113,15 @@ func increment() func() int {
 		count++
 		return count
 	}
+}
+
+func increment2() int {
+	count := 0
+	count++
+	return count
+}
+
+func printMessage1(message5 string) {
+	message5 += " (from printMessage1())"
+	fmt.Println(message5)
 }
