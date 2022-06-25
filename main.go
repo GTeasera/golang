@@ -67,7 +67,20 @@ func main() {
 	fmt.Println(increment2())
 
 	message5 := "Go to Golang"
-	printMessage1(message5)
+	fmt.Println(message5)
+
+	printMessage1(&message5)
+
+	fmt.Println(message5)
+
+	number := 5
+	var p *int
+	p = &number
+	fmt.Println(p)
+	fmt.Println(&number)
+
+	*p = 10
+	fmt.Println(number)
 }
 
 func print() {
@@ -121,7 +134,6 @@ func increment2() int {
 	return count
 }
 
-func printMessage1(message5 string) {
-	message5 += " (from printMessage1())"
-	fmt.Println(message5)
+func printMessage1(message5 *string) {
+	*message5 += " (from printMessage1())"
 }
