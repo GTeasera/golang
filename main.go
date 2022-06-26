@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"math"
+	"golang/mod/shape"
 )
 
 var a, b, c int
@@ -34,26 +34,6 @@ func NewUser(name, sex string, age, weight, height int) User {
 }
 
 // ======================================== Interface
-
-type Shape interface {
-	Area() float32
-}
-
-type Square struct {
-	sideLenght float32
-}
-
-type Circle struct {
-	radius float32
-}
-
-func (s Square) Area() float32 {
-	return s.sideLenght * s.sideLenght
-}
-
-func (c Circle) Area() float32 {
-	return c.radius * c.radius * math.Pi
-}
 
 func main() {
 	fmt.Println(msg)
@@ -200,8 +180,8 @@ func main() {
 	// ======================================== Interface
 	fmt.Println("\n================================= Interface")
 
-	square := Square{5}
-	circle := Circle{6}
+	square := shape.NewSquare{5}
+	circle := shape.NewCircle{6}
 
 	printShapeArea(square)
 	printShapeArea(circle)
@@ -218,8 +198,8 @@ func main() {
 
 // ======================================== Interface
 
-func printShapeArea(shape Shape) {
-	fmt.Println(shape.Area())
+func printShapeArea(s shape.Shape) {
+	fmt.Println(s.Area())
 }
 
 // ======================================== Struct
