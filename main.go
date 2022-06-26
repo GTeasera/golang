@@ -13,6 +13,25 @@ func init() {
 	msg = "from init()\n"
 }
 
+// ======================================== Struct
+type User struct {
+	name   string
+	age    int
+	sex    string
+	weight int
+	height int
+}
+
+func NewUser(name, sex string, age, weight, height int) User {
+	return User{
+		name:   name,
+		sex:    sex,
+		age:    age,
+		weight: weight,
+		height: height,
+	}
+}
+
 func main() {
 	fmt.Println(msg)
 
@@ -120,8 +139,43 @@ func main() {
 	fmt.Println(len(messageArray4))
 	fmt.Println(cap(messageArray4))
 
+	// ======================================== MAP
+	fmt.Println("\n================================= MAP")
+
+	users := map[string]int{
+		"Nikita": 17,
+		"Gleb":   16,
+		"Dima":   15,
+	}
+	fmt.Println(users)
+
+	age, exists := users["Nikita"]
+	if exists {
+		fmt.Println("Nikita", age, exists)
+	} else {
+		fmt.Println("Missing in a list", exists)
+	}
+
+	users["Demian"] = 16
+	delete(users, "Dima")
+
+	for key, value := range users {
+		fmt.Println(key, value)
+	}
+
+	// ======================================== Struct
+	fmt.Println("\n================================= Struct")
+
+	user1 := User{"Russkiy Dolbaeb", 23, "Netu", 100, 150}
+	user2 := NewUser("Nikita", "Male", 17, 74, 193)
+
+	fmt.Println(user1)
+	fmt.Println(user2)
+
+	fmt.Println(user2.name)
+
 	// ======================================== Panic
-	fmt.Println("\n================================= Panic\n")
+	fmt.Println("\n================================= Panic")
 
 	defer handlerPanic()
 
@@ -129,6 +183,10 @@ func main() {
 	fmt.Println("main()")
 
 }
+
+// ======================================== Struct
+
+// ======================================== MAP
 
 // ======================================== Panic
 
