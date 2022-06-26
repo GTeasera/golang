@@ -107,6 +107,18 @@ func main() {
 	printArray1(messageArray2)
 	fmt.Println(messageArray2)
 
+	var messageArray3 []string
+	// messageArray3[0] = "1"
+	messageArray3 = append(messageArray3, "1")
+
+	fmt.Println(messageArray3)
+
+	messageArray4 := make([]string, 5)
+	messageArray4 = append(messageArray4, "43")
+
+	fmt.Println(messageArray4)
+	fmt.Println(len(messageArray4))
+	fmt.Println(cap(messageArray4))
 }
 
 // ======================================== Arays & Slices
