@@ -119,7 +119,17 @@ func main() {
 	fmt.Println(messageArray4)
 	fmt.Println(len(messageArray4))
 	fmt.Println(cap(messageArray4))
+
+	// ======================================== Panic
+	fmt.Println("\n================================= Panic\n")
+
+	defer printMessage("printMessage()")
+	fmt.Println("main()")
+
+	panic("AAAA HELP")
 }
+
+// ======================================== Panic
 
 // ======================================== Arays & Slices
 
