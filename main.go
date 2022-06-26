@@ -123,13 +123,22 @@ func main() {
 	// ======================================== Panic
 	fmt.Println("\n================================= Panic\n")
 
-	defer printMessage("printMessage()")
+	defer handlerPanic()
+
+	messageArray4[11] = "54"
 	fmt.Println("main()")
 
-	panic("AAAA HELP")
 }
 
 // ======================================== Panic
+
+func handlerPanic() {
+	if r := recover(); r != nil {
+		fmt.Println(r)
+	}
+
+	fmt.Println("handlerPanic() have been completed")
+}
 
 // ======================================== Arays & Slices
 
